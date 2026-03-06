@@ -27,7 +27,7 @@ const InkCanvas: React.FC<InkCanvasProps> = ({ darkMode = false }) => {
     let time = 0;
 
     // --- Configuration ---
-    const LAYERS = 3; 
+    const LAYERS = 2; 
     
     // --- Classes ---
     
@@ -252,7 +252,7 @@ const InkCanvas: React.FC<InkCanvasProps> = ({ darkMode = false }) => {
       }
 
       draw(ctx: CanvasRenderingContext2D, darkness: number) {
-        const depth = this.index / (LAYERS - 1); 
+        const depth = this.index / 2; 
         
         const dayVal = 180 - (depth * 140); 
         const dayAlpha = 0.3 + (depth * 0.6); 
