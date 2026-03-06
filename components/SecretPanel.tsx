@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from 'motion/react';
 
 interface SecretPanelProps {
   isOpen: boolean;
@@ -8,17 +9,37 @@ interface SecretPanelProps {
 const SecretPanel: React.FC<SecretPanelProps> = ({ isOpen, onClose }) => {
   const [isFlipped, setIsFlipped] = useState(false);
 
-  if (!isOpen) return null;
-
   return (
     <>
-      <div 
-        className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[60] animate-fade-in" 
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        transition={{ duration: 0.3 }}
+        className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[60]" 
         onClick={onClose}
-      ></div>
+      />
       
-      {/* Container: Removed -translate-x-1/2 from class because the animation handles the transform centering */}
-      <div className="fixed top-[15%] left-1/2 z-[70] w-[clamp(300px,80vw,450px)] perspective-[1500px] animate-drop-in">
+      <motion.div 
+        initial={{ y: '-100vh', x: '-50%', rotate: 3, opacity: 0 }}
+        animate={{ 
+          y: 0,
+          rotate: 0,
+          opacity: 1,
+          x: '-50%'
+        }}
+        exit={{ 
+          y: '-100vh', 
+          rotate: 3,
+          opacity: 0,
+          x: '-50%'
+        }}
+        transition={{ 
+          duration: 0.6,
+          ease: [0.34, 1.56, 0.64, 1]
+        }}
+        className="fixed top-[15%] left-1/2 z-[70] w-[clamp(300px,80vw,450px)] perspective-[1500px]"
+      >
         <div className={`relative w-full duration-700 preserve-3d transition-transform ${isFlipped ? 'rotate-y-180' : ''}`}>
           
           {/* Front Face - Frosted Black */}
@@ -28,6 +49,7 @@ const SecretPanel: React.FC<SecretPanelProps> = ({ isOpen, onClose }) => {
                  src="https://resizing.flixster.com/91Fo4LevY-qZQa6x5gYgOBUN6EQ=/fit-in/705x460/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p30824090_b_h8_ac.jpg?q=80&w=600&auto=format&fit=crop" 
                  alt="Secret 1"
                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter sepia-[0.2] brightness-90 group-hover:brightness-100"
+                 referrerPolicy="no-referrer"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-2">
                  <span className="text-gray-200 text-sm font-serif tracking-widest">点击翻转</span>
@@ -47,6 +69,7 @@ const SecretPanel: React.FC<SecretPanelProps> = ({ isOpen, onClose }) => {
                  src="https://frontend-assets.clipsource.com/61f2b6d73d8bf/hbo-61f7aa83bfb15/2025/09/24/68d3940a93e04_thumbnail.jpg?q=80&w=600&auto=format&fit=crop" 
                  alt="Secret 2"
                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 filter sepia-[0.2] brightness-90 group-hover:brightness-100"
+                 referrerPolicy="no-referrer"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end justify-center pb-2">
                  <span className="text-gray-200 text-sm font-serif tracking-widest">点击返回</span>
@@ -60,32 +83,12 @@ const SecretPanel: React.FC<SecretPanelProps> = ({ isOpen, onClose }) => {
           </div>
 
         </div>
-      </div>
+      </motion.div>
       
       <style>{`
         .rotate-y-180 { transform: rotateY(180deg); }
         .preserve-3d { transform-style: preserve-3d; }
         .backface-hidden { backface-visibility: hidden; }
-        
-        /* Drop In Animation */
-        @keyframes dropIn {
-          0% { transform: translate(-50%, -100vh) rotate(3deg); opacity: 0; }
-          70% { transform: translate(-50%, 20px) rotate(-1deg); opacity: 1; }
-          100% { transform: translate(-50%, 0) rotate(0deg); opacity: 1; }
-        }
-        .animate-drop-in {
-          animation: dropIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-          transform-origin: top center;
-        }
-
-        /* Fade In for Backdrop */
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        .animate-fade-in {
-          animation: fadeIn 0.3s ease-out forwards;
-        }
       `}</style>
     </>
   );

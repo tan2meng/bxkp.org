@@ -1,4 +1,5 @@
 import React, { useState, useMemo } from 'react';
+import { AnimatePresence } from 'motion/react';
 import { SITES } from './constants';
 import { Category, InfoType } from './types';
 import InkCanvas from './components/InkCanvas';
@@ -62,7 +63,11 @@ export default function App() {
       <InkCanvas darkMode={isSecretOpen} />
       
       <TasselSwitch onToggle={() => setIsSecretOpen(true)} />
-      <SecretPanel isOpen={isSecretOpen} onClose={() => setIsSecretOpen(false)} />
+      <AnimatePresence>
+        {isSecretOpen && (
+          <SecretPanel isOpen={isSecretOpen} onClose={() => setIsSecretOpen(false)} />
+        )}
+      </AnimatePresence>
 
       {/* Main Container */}
       <div className="relative z-10 w-full max-w-[1200px] mx-auto px-4 sm:px-8 py-8 md:py-10 pb-36 md:pb-6 flex flex-col items-center min-h-screen">
