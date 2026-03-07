@@ -20,7 +20,7 @@ export const SITES: Site[] = [
     { name: "ShowBox", main_url: "https://www.showbox.media/", backup_url: "", tags: ["网盘"] },
     { name: "AGE动漫", main_url:"https://www.agedm.io/", backup_url:"https://www.age.tv/", tags:["在线"]},
     { name: "EE3", main_url: "https://ee3.me/", backup_url: "https://rips.cc/", tags: ["在线"] },
-    { name: "Flixer", main_url:"https://flixer.sh/", backup_url:"https://watch.vidora.su", tags:["在线"]},
+    { name: "Flixer", main_url:"https://flixer.su/", backup_url:"https://discord.com/invite/Z9Hjeqe4Fr", tags:["在线"]},
     { name: "Cineby", main_url:"https://www.cineby.gd/", backup_url:"https://www.fmovies.gd/", tags:["在线"]},
     { name: "BrocoFlix", main_url:"https://brocoflix.xyz/", backup_url:"https://rentry.co/KipsSites", tags:["在线"]},
     { name: "Mapple", main_url:"https://mapple.mov/", backup_url:"https://mapple.site/", tags:["在线"]},
