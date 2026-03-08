@@ -129,7 +129,7 @@ export default function App() {
                      <li><span className="font-bold text-ink-900">付费服：</span>需要付费，但服务会相对比较稳定。
                         <div className="mt-1 text-sm text-indigo-stone flex flex-wrap gap-2">
                             <a href="https://plan.emby.moe/" target="_blank" className="hover:text-cinnabar underline">1111Emby</a>
-                            <a href="https://micu.hk/archives/emby-users" target="_blank" className="hover:text-cinnabar underline">MICU</a>
+                            <a href="https://t.me/micu_user_bot" target="_blank" className="hover:text-cinnabar underline">MICU</a>
                             <a href="https://zdz.best" target="_blank" className="hover:text-cinnabar underline">终点站+</a>
                         </div>
                      </li>
