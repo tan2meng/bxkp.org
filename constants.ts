@@ -24,7 +24,7 @@ export const SITES: Site[] = [
     { name: "Cineby", main_url:"https://www.cineby.gd/", backup_url:"https://www.fmovies.gd/", tags:["在线"]},
     { name: "BrocoFlix", main_url:"https://brocoflix.xyz/", backup_url:"https://rentry.co/KipsSites", tags:["在线"]},
     { name: "Mapple", main_url:"https://mapple.mov/", backup_url:"https://mapple.site/", tags:["在线"]},
-    { name: "P-Stream", main_url:"https://pstream.mov", backup_url:"https://discord.com/invite/jZ6kkzADWS", tags:["在线"]},
+    { name: "Cinegram", main_url:"https://cinegram.net/home", backup_url:"cinegramofficial@proton.me", tags:["在线"]},
     { name: "BT之家", main_url: "https://1lou.one/", backup_url: "https://1lou.cc/", tags: ["BT", "网盘"] },
     { name: "磁力熊", main_url: "https://www.cilixiong.org", backup_url: "https://www.cilixiong.cc", tags: ["BT"] },
     { name: "磁力帝", main_url: "https://cldcld.cc", backup_url: "https://cldcld.top", tags: ["BT"] },
